@@ -1,0 +1,77 @@
+.navbar-brand{
+    margin-left: 3em ;
+}
+.nav-link {
+    color: rgb(201, 39, 141);
+}
+
+.nav-link:hover {
+    color: rgb(133, 27, 94);
+}
+
+.nav-link.active {
+    background-color: rgb(201, 39, 141) !important;
+}
+
+.carousel {
+    height: 90px;
+}
+
+.carouselText {
+    color: black;
+    text-decoration: none;
+    text-size-adjust:inherit;
+}
+
+.carouselText:hover {
+    color: rgb(201, 39, 141);
+    text-decoration: none;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-size: 100%, 100%;
+    background-color: transparent;
+}
+
+.carousel-control-next-icon:after {
+    content: ">";
+    font-size: 60px;
+    color: grey;
+}
+
+.carousel-control-prev-icon:after {
+    content: "<";
+    font-size: 60px;
+    color: grey;
+}
+
+.form-check-input {
+    margin-top: 1.25em;
+}
+.form-check-input:checked {
+    background-color: rgb(201, 39, 141);
+    border-color: rgb(133, 27, 94);
+}
+
+.form-check-label {
+    margin-top: 1em;
+}
+.btn{
+    background-color: rgb(201, 39, 141) !important;
+    margin-top: 0,4em;
+}
+
+.form-control-inline{
+    margin-top: 1em;
+}
+
+.row{
+    margin-left: 4em;
+    margin-top: 2em;
+}
+.card{
+    margin: 2em;
+}
