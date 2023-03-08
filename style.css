@@ -84,3 +84,7 @@ footer>img {
 footer>img:hover {
     transform: scale(1.2) rotate(-25deg);
 }
+
+footer>h4 {
+    margin-right: 2em;
+}
