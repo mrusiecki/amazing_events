@@ -1,6 +1,16 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .navbar-brand{
     margin-left: 3em ;
 }
+.nav-pills {
+    margin-right: 3em;
+}
+
 .nav-link {
     color: rgb(201, 39, 141);
 }
@@ -70,10 +80,11 @@
 
 .row{
     margin-left: 4em;
+    margin-right: 4em;
     margin-top: 2em;
 }
 .card{
-    margin: 2em;
+    margin: 1em;
 }
 
 footer>img {
@@ -87,4 +98,8 @@ footer>img:hover {
 
 footer>h4 {
     margin-right: 2em;
+}
+
+main {
+    max-width: 100%;
 }
