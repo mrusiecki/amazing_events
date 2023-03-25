@@ -2,22 +2,47 @@
 const cards = document.getElementById('cards');
 const checkFilter = document.getElementById('checkFilter');
 const input = document.querySelector('input');
+const urlApi = "https://mindhub-xj03.onrender.com/api/amazing";
+
+let eventsArray = [];
+let currentDate = [];
+
+// funciones asincronicas //
+async function getEvents() {
+
+  try {
+    const response = await fetch(urlApi)
+    console.log(response);
+    const allData = await response.json()
+    console.log(allData.events);
+    eventsArray = allData.events;
+    currentDate = allData.currentDate;
+
+    allEventCard(eventsArray);
+    crearCheckboxes(eventsArray);
+  }
+  catch (error) {
+    console.log(error);
+  }
+
+}
 
 // eventos //
-input.addEventListener('input', filtroCruzado);
+input.addEventListener('input', () => {
+  renderSearch();
+});
 
-checkFilter.addEventListener('change', filtroCruzado);
+checkFilter.addEventListener('change', renderSearch);
 
 // funciones //
-function allEventCard(arrayData) {
-  if (arrayData.length == 0) {
+function allEventCard(dataArray) {
+  if (dataArray.length == 0) {
     cards.innerHTML = "<h2 class='display-6 fw-bolder text-center'>No match found!</h2>"
     return
   }
-
   let body = ``;
 
-  arrayData.forEach(events => {
+  dataArray.forEach(events => {
     body += `
           <div class="card" style="width: 18rem;">
           <div class="card-body">
@@ -36,9 +61,9 @@ function allEventCard(arrayData) {
   cards.innerHTML = body;
 }
 
-function crearCheckboxes(arrayInfo) {
+function crearCheckboxes(dataArray) {
   let checks = ''
-  let categoriasRepetidas = arrayInfo.events.map(elemento => elemento.category)
+  let categoriasRepetidas = dataArray.map(elemento => elemento.category)
   let clases = new Set(categoriasRepetidas.sort((a, b) => {
     if (a > b) {
       return 1
@@ -57,35 +82,33 @@ function crearCheckboxes(arrayInfo) {
   checkFilter.innerHTML = checks
 }
 
-function filtrarPorTexto(arrayDatos, texto) {
-  let arrayFiltrado = arrayDatos.filter(elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
+function filtrarPorTexto(eventsArray, texto) {
+  let arrayFiltrado = eventsArray.filter(elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
   return arrayFiltrado
 }
 
-function filtrarPorCheck(arrayInfo) {
+function filtrarPorCheck() {
   let checkboxes = document.querySelectorAll("input[type='checkbox']")
-  console.log(checkboxes);
-  let arrayChecks = Array.from(checkboxes)
-  console.log(arrayChecks);
-  let checksChecked = arrayChecks.filter(check => check.checked)
-  console.log(checksChecked);
-  if (checksChecked.length == 0) {
-    return arrayInfo
-  }
-  let checkValues = checksChecked.map(check => check.value)
-  console.log(checkValues);
-  let arrayFiltrado = arrayInfo.filter(elemento => checkValues.includes(elemento.category))
-  console.log(arrayFiltrado);
-  return arrayFiltrado
+  let check = [];
+  checkboxes.forEach(checkbox => {
+    if (checkbox.checked) {
+      check.push(checkbox.value);
+    }
+  });
+  return check;
 }
 
-function filtroCruzado() {
-  let arrayFiltrado1 = filtrarPorTexto(data.events, input.value)
-  let arrayFiltrado2 = filtrarPorCheck(arrayFiltrado1)
-  allEventCard(arrayFiltrado2)
+function renderSearch() {
+  let textoBusqueda = input.value;
+  let tiposChequeados = filtrarPorCheck();
+  let resultados = eventsArray.filter(event => event.name.toLowerCase().includes(textoBusqueda.toLowerCase()));
+  if (tiposChequeados.length > 0) {
+    resultados = resultados.filter(events => {
+      return tiposChequeados.some(tipo => events.category.includes(tipo));
+    });
+  }
+  allEventCard(resultados);
 }
 
 // llamados //
-allEventCard(data.events);
-crearCheckboxes(data);
-
+getEvents();

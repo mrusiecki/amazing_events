@@ -8,9 +8,9 @@
     <title>Stats</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="image/png" href="./images/amazing.ico" sizes="32x32" />
-    <link rel="icon" type="image/png" href="./images/amazing.ico" sizes="16x16" />
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="icon" type="image/png" href="./assets/images/amazing.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./assets/images/amazing.ico" sizes="16x16" />
 
 </head>
 
@@ -20,7 +20,7 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./home.html">
-                    <img src="./images/Logo_Amazing_Events.png" alt="Amazing Events" height="70vh">
+                    <img src="./assets/images/Logo_Amazing_Events.png" alt="Amazing Events" height="70vh">
                 </a>
                 <div class="nav nav-pills nav-fill justify-content-end">
                     <a class="nav-link" href="./home.html">Home</a>
@@ -80,30 +80,15 @@
                 <table class="table table-bordered table-responsive margin-bottom">
                     <thead>
                         <tr>
-                            <th colspan="3" class="table-danger">Events Statistics</th>
+                            <th colspan="3" class="table-danger text-center">Events Statistics</th>
                         </tr>
-                        <tr>
+                        <tr class="text-center">
                             <th>Events with the highest percentage of attendance</th>
                             <th>Events with the lowest percentage of attendance</th>
                             <th>Event with larger capacity</th>
                         </tr>
                     </thead>
-                    <tbody class="table-hover">
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
+                    <tbody class="table-hover" id="tbody1">
                     </tbody>
                 </table>
             </div>
@@ -114,26 +99,16 @@
                 <table class="table table-bordered table-responsive">
                     <thead>
                         <tr>
-                            <th colspan="3" class="table-danger">Upcoming events Statistics by category</th>
+                            <th colspan="3" class="table-danger text-center">Upcoming events Statistics by category</th>
                         </tr>
-                        <tr>
+                        <tr class="text-center">
                             <th>Categories</th>
                             <th>Revenues</th>
                             <th>Percentage of attendance</th>
                         </tr>
                     </thead>
 
-                    <tbody class="table-hover">
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
+                    <tbody class="table-hover" id="tbody2">
                     </tbody>
                 </table>
             </div>
@@ -144,25 +119,15 @@
                 <table class="table table-bordered table-responsive">
                     <thead>
                         <tr>
-                            <th colspan="3" class="table-danger">Past events Statistic by category</th>
+                            <th colspan="3" class="table-danger text-center">Past events Statistic by category</th>
                         </tr>
-                        <tr>
+                        <tr class="text-center">
                             <th>Categories</th>
                             <th>Revenues</th>
                             <th>Percentage of attendance</th>
                         </tr>
                     </thead>
-                    <tbody class="table-hover">
-                        <tr>
-                            <td></td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                        </tr>
+                    <tbody class="table-hover" id="tbody3">
                     </tbody>
                 </table>
             </div>
@@ -170,9 +135,9 @@
     </main>
 
     <footer>
-        <img src="./images/instagram.svg" alt="Instagram" href="#">
-        <img src="./images/facebook.svg" alt="Facebook" href="#">
-        <img src="./images/whatsapp.svg" alt="Whatsapp" href="#">
+        <img src="./assets/images/instagram.svg" alt="Instagram" href="#">
+        <img src="./assets/images/facebook.svg" alt="Facebook" href="#">
+        <img src="./assets/images/whatsapp.svg" alt="Whatsapp" href="#">
         <h4 class="float-end">COHORT</h4>
 
     </footer>
@@ -180,5 +145,6 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </body>
+<script src="./assets/js/stats.js"></script>
 
 </html>
